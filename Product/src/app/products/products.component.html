@@ -1,16 +1,29 @@
 <br/><br/><br/><br/><br/>
 
-<mat-accordion *ngFor="let item of [0,1,2,3,4]">
-    <mat-expansion-panel (opened)="panelOpenState = true"
+<mat-accordion  *ngFor="let item of [0,1,2,3,4]">
+    <mat-expansion-panel class="mat-expansion-indicator" (opened)="panelOpenState = true"
     (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="disable_ripple">
         <mat-panel-title>
           This is the expansion title
         </mat-panel-title>
-        <mat-panel-description>
-          This is a summary of the content
-        </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
+      
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="email" id="email" formControlName="email">    
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" name="password" id="password" formControlName="password">
+        </div>
+        <div>
+            <button type="submit" [disabled]="!userForm.valid">Submit</button>
+        </div>
+    
+    </form>
+
     </mat-expansion-panel>
   </mat-accordion>

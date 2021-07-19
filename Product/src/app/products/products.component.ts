@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -8,12 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private toastr: ToastrService ) { }
 
   ngOnInit(): void {
   }
 
   panelOpenState = false;
 
+  public name ="dummy";
+
+  pwdPattern = "^[a-z A-Z _ 0-9]{6,12}$";
+  emailPattern = "^[a-z0-9.+]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+
+  public userForm= new FormGroup({
+    email: new FormControl('',[Validators.required, Validators.pattern(this.emailPattern)]),
+    password: new FormControl('',[Validators.required,Validators.pattern(this.pwdPattern)])
+  });
+
+  onSubmit(){
+    this.toastr.info('Email: '+this.userForm.controls["email"].value+' <br/> Password: '+this.userForm.controls["password"].value+' ','', { enableHtml: true});
+    console.log(this.userForm.controls['email'].value);
+  }
 
 }
