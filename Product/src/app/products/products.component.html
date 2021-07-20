@@ -1,7 +1,7 @@
 <div class="pt-5 p-4">
   <mat-accordion  *ngFor="let item of [0,1,2,3,4]; let i as index" [multi]="false">
     <div class="pt-2 col-sm-12">
-      <mat-expansion-panel class="bg-light" [hideToggle]="true" (opened)="beforePanelOpened()">
+      <mat-expansion-panel class="bg-light disable_ripple" [hideToggle]="true" (opened)="beforePanelOpened()">
         <mat-expansion-panel-header>
             <mat-panel-title>
               <div class="text-capitalize text-primary pt-1">

@@ -15,11 +15,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  panelOpenState = false;
-
-  public name ="dummy";
-
+  
   pwdPattern = "^[a-z A-Z _ 0-9]{6,12}$";
   emailPattern = "^[a-z0-9.+]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
