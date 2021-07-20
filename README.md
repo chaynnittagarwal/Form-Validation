@@ -2,10 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
----------------------------------------------------------------------------------------------------------------------------------
-                            Make sure RestAPI is up! Refer the restapi README.md
----------------------------------------------------------------------------------------------------------------------------------
-
 Run `npm install` to install the node_modules and its dependencies.
 
 ## Development server
