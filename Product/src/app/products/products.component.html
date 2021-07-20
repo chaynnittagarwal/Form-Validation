@@ -1,29 +1,35 @@
-<br/><br/><br/><br/><br/>
+<div class="pt-5 p-4">
+  <mat-accordion  *ngFor="let item of [0,1,2,3,4]; let i as index" [multi]="false">
+    <div class="pt-2 col-sm-12">
+      <mat-expansion-panel class="bg-light" [hideToggle]="true" (opened)="beforePanelOpened()">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="text-capitalize text-primary pt-1">
+                Product {{i+1}}
+              </div>
+            </mat-panel-title>  
+              <!-- <mat-action-row>
+                <button class="btn btn-primary"  mat-button>Click me</button>
+              </mat-action-row> -->
+        </mat-expansion-panel-header>
+  
+        <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class ="col-3">
+              <label>Email</label>
+              <input class="form-control" type="email" name="email" id="email" formControlName="email">    
+          </div>
+          <div class= "col-3">
+              <label >Password</label>
+              <input class="form-control" type="password" name="password" id="password" formControlName="password">
+          </div>
+          <br>
+          <div>
+              <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Submit</button>
+          </div>
+        </form>
+  
+      </mat-expansion-panel>
+    </div>
+    </mat-accordion>
+</div>
 
-<mat-accordion  *ngFor="let item of [0,1,2,3,4]">
-    <mat-expansion-panel class="mat-expansion-indicator" (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false">
-      <mat-expansion-panel-header class="disable_ripple">
-        <mat-panel-title>
-          This is the expansion title
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-
-        <div>
-            <label for="">Email</label>
-            <input type="email" name="email" id="email" formControlName="email">    
-        </div>
-        <div>
-            <label for="">Password</label>
-            <input type="password" name="password" id="password" formControlName="password">
-        </div>
-        <div>
-            <button type="submit" [disabled]="!userForm.valid">Submit</button>
-        </div>
-    
-    </form>
-
-    </mat-expansion-panel>
-  </mat-accordion>

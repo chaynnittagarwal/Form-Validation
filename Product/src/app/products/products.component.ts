@@ -33,4 +33,9 @@ export class ProductsComponent implements OnInit {
     console.log(this.userForm.controls['email'].value);
   }
 
+  public beforePanelOpened(){
+    this.userForm.controls['email'].setValue("");
+    this.userForm.controls['password'].setValue("");
+  }
+
 }
